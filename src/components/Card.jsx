@@ -1,11 +1,6 @@
-export default function Card(text, image){
+import React from "react"
+export default function Card(){
     return(
-        <div className="text-white bg-green-400 text-center p-52">
-            <h1>Bienvenido a utcanicos <br/> juan ross</h1>
-            <di>
-                <img src={image}/>
-            </di>
-        </div>
-        
+        <div>hola</div>
     )
 }
