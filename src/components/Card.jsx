@@ -1,19 +1,19 @@
 import React from "react";
 
-const Card = (image) => {
+const Card = ({image}) => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen ">
       <div className=" bg-white py-10">
         <div className="py-10 text-center">
-          <div className="font-extrabold text-4xl text-black">
+          <div className="font-extrabold text-4xl text-black ">
             BIENVENIDO A UT-CANICOS <br />
-            Juan Ross
+            JUAN ROSS
           </div>
         </div>
         <div className=" flex items-center justify-center  ">
           <img
             className="h-96 rounded-2xl"
-            src="src/assets/istockphoto-1478431022-1024x1024.jpg"
+            src={image}
             alt="Imagen de empresa"
           />
         </div>
