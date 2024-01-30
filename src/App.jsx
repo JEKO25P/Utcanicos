@@ -5,8 +5,14 @@ import Card from "./components/Card";
 
 export default function App(){
   return(
-    <div >
+    <div className="flex flex-col">
+      <div>
         <Navbar/>
+      </div>
+      <div >
+        <Card
+        />
+      </div>
     </div>
        
   )
