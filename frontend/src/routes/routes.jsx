@@ -1,10 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
-import Trabajos from "../pages/Trabajos";
-import TrabajosMecanic from "../pages/TrabajosMecanic";
-import StatusTrabajo from "../pages/StatusTrabajo";
-import Costos from "../components/Costos";
-import BotonFinal from "../components/BotonFinal";
+import Navbar from "../components/Navbar";
+import Card from "../components/Card";
 
 
 export const routes = createBrowserRouter([
@@ -33,6 +30,14 @@ export const routes = createBrowserRouter([
     {
         path: "/costo",
         element: <Costos/>
+    },
+    {
+        path: "/login",
+        element: <Login/>
+    },
+    {
+        path: "/registro",
+        element: <Registrar/>
     },
     {
         path: "*",
