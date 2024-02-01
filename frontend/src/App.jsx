@@ -12,9 +12,6 @@ export default function App() {
       <div className="mt-16">
         <Card image={imagen} />
       </div>
-      <div>
-        <Footer/>
-      </div>
     </div>
     
   );
