@@ -1,7 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
-import Navbar from "../components/Navbar";
-import Card from "../components/Card";
+import Trabajos from "../pages/Trabajos";
+import TrabajosMecanic from "../pages/TrabajosMecanic";
+import StatusTrabajo from "../pages/StatusTrabajo";
+import Costos from "../components/Costos";
+import BotonFinal from "../components/BotonFinal";
 
 
 export const routes = createBrowserRouter([
@@ -10,12 +13,26 @@ export const routes = createBrowserRouter([
         element: <App/>
     },
     {
-        path: "/navbar",
-        element: <Navbar/>
+        path: "/trabajos",
+        element: <Trabajos/>
+    },
+
+    {
+        path: "/trabajosMecanic",
+        element: < TrabajosMecanic/>
     },
     {
-        path: "/card",
-        element: <Card/>
+        path: "/statusTrabajo",
+        element: <StatusTrabajo/>
+    },
+    {
+        path: "/boton",
+        element: <BotonFinal/>
+    },
+
+    {
+        path: "/costo",
+        element: <Costos/>
     },
     {
         path: "*",
