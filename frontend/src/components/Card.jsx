@@ -2,7 +2,7 @@ import React from "react";
 
 const Card = ({image}) => {
   return (
-    <div className="min-h-screen ">
+
       <div className=" bg-white py-10">
         <div className="py-10 text-center">
           <div className="font-extrabold text-4xl text-black ">
@@ -34,7 +34,7 @@ const Card = ({image}) => {
           </h2>
         </div>
       </div>
-    </div>
+
   );
 };
 

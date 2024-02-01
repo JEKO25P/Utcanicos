@@ -2,6 +2,7 @@ import Navbar from "./components/Navbar";
 import "boxicons";
 import Card from "./components/Card";
 import imagen from "./assets/auto.jpg";
+import Footer from "./components/footer";
 
 export default function App() {
   return (
@@ -12,6 +13,10 @@ export default function App() {
       <div className="mt-16">
         <Card image={imagen} />
       </div>
+      <div>
+        <Footer/>
+      </div>
     </div>
+    
   );
 }
