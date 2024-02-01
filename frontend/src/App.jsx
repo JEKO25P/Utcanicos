@@ -1,8 +1,7 @@
 import Navbar from "./components/Navbar";
 import "boxicons";
 import Card from "./components/Card";
-import imagen from "./assets/auto.jpg";
-import Footer from "./components/footer";
+import imagen from "./assets/auto.jpeg.jpg";
 
 export default function App() {
   return (
