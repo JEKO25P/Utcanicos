@@ -1,30 +1,25 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
-import Navbar from "../components/Navbar";
-import Card from "../components/Card";
 import Login from "../login";
 import Registrar from "../registrar";
-
+import Trabajos from "../pages/Trabajos";
+    
 export const routes = createBrowserRouter([
     {
         path: "/",
-        element: <App/>
-    },
-    {
-        path: "/navbar",
-        element: <Navbar/>
-    },
-    {
-        path: "/card",
-        element: <Card/>
-    },
-    {
-        path: "/login",
         element: <Login/>
     },
     {
         path: "/registro",
         element: <Registrar/>
+    },
+    {
+        path: "/app",
+        element: <App/>
+    },
+    {
+        path: "/trabajos",
+        element: <Trabajos/>
     },
     {
         path: "*",

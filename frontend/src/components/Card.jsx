@@ -2,7 +2,7 @@ import React from "react";
 
 const Card = ({image}) => {
   return (
-
+    <div className="min-h-screen ">
       <div className=" bg-white py-10">
         <div className="py-10 text-center">
           <div className="font-extrabold text-4xl text-black ">
@@ -18,7 +18,7 @@ const Card = ({image}) => {
           />
         </div>
         <div className="px-6 pt-10 text-center">
-          <h2 className="font- text-base text-black pb-10">
+          <h2 className="font- text-base text-black pb-10 px-20">
             Es un hecho establecido hace demasiado tiempo que un lector se
             distraerá con el contenido del texto de un sitio mientras que mira
             su diseño. El punto de usar Lorem Ipsum es que tiene una
@@ -34,7 +34,7 @@ const Card = ({image}) => {
           </h2>
         </div>
       </div>
-
+</div>
   );
 };
 

@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Patch, Delete, Body, Param, ParseIntPipe } from '@nestjs/common';
+import { Controller, Get, Post, Patch, Delete, Body, Param, ParseIntPipe, HttpException, HttpStatus } from '@nestjs/common';
 import { Users } from './user.entity';
 import { CreateUserDto } from './Dto/create-user.dto';
 import { UsersService } from './users.service';
@@ -38,12 +38,13 @@ export class UsersController {
         return this.usersService.updateUser(id, user)
     }
 
-
-
-    @Get('login')
-    loginUser(@Body() newUser: LoginUserDto) {
-
-        console.log(newUser)
-        return this.usersService.loginUser(newUser)
+    @Post('login')
+    async loginUser(@Body() loginUserDto: LoginUserDto) {
+        try {
+            const token = await this.usersService.loginUser(loginUserDto);
+            return { message: 'Login exitoso', token };
+        } catch (error) {
+            throw new HttpException('Credenciales incorrectas', HttpStatus.UNAUTHORIZED);
+        }
     }
 }
