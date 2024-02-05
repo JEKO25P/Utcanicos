@@ -3,7 +3,6 @@ import { Users } from './user.entity';
 import { CreateUserDto } from './Dto/create-user.dto';
 import { UsersService } from './users.service';
 import { UpdateUserDto } from './Dto/update-user.dto';
-import { LoginUserDto } from './Dto/login-user.dto';
 
 
 @Controller('users')
@@ -39,12 +38,14 @@ export class UsersController {
     }
 
     @Post('login')
-    async loginUser(@Body() loginUserDto: LoginUserDto) {
-        try {
-            const token = await this.usersService.loginUser(loginUserDto);
-            return { message: 'Login exitoso', token };
-        } catch (error) {
-            throw new HttpException('Credenciales incorrectas', HttpStatus.UNAUTHORIZED);
+    async login(@Body('Email') Email: string, @Body('Password') Password: string) {
+        const user = {UserName:Email, Password:Password}
+       const usuario= await this.usersService.loginUser(user);
+console.log(usuario)
+        if (!usuario) {
+            return { message: 'Credenciales invalidas' };
         }
+
+        return { token: usuario.access_token, message: 'Login exitoso' };
     }
 }

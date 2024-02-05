@@ -20,7 +20,7 @@ export default function Login() {
         e.preventDefault();
         try {
             const response = await axios.post("http://localhost:3000/users/login", formValues);
-            console.error("Error al iniciar sesión: ", error);
+            console.log(response)
             if (response.data.message === 'Login exitoso') {
                 // Inicio de sesión exitoso
                 localStorage.setItem('token', response.data.token);

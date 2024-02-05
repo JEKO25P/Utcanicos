@@ -19,6 +19,7 @@ export default function Navbar() {
         <Link to={"/"}>
           <box-icon name="user-circle" size="lg" color="#ffffff"></box-icon>
         </Link>
+      
       </div>
     </div>
   );

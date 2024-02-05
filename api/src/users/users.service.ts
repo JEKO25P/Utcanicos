@@ -5,12 +5,13 @@ import { Users } from './user.entity';
 import { CreateUserDto } from './Dto/create-user.dto';
 import { UpdateUserDto } from './Dto/update-user.dto'
 import { LoginUserDto } from './Dto/login-user.dto';
+import { JwtService } from '@nestjs/jwt';
 
 
 @Injectable()
 export class UsersService {
     constructor(
-        @InjectRepository(Users) private userRepository: Repository<Users>,
+        @InjectRepository(Users) private userRepository: Repository<Users>,private readonly jwtService: JwtService,
     ) { }
 
     createUser(user: CreateUserDto) {
@@ -50,14 +51,22 @@ export class UsersService {
         })
     }
 
-    loginUser(user: LoginUserDto) {
-        return this.userRepository.findOne({
+    async loginUser (user: LoginUserDto) {
+        const rest= await this.userRepository.findOne({
             where: {
                 Username: user.UserName,
                 Password: user.Password
             }
 
+
         })
+        console.log(rest);
+        const payload = { id: rest.id, name: rest.Nombre, email: rest.Email, rol: rest.role };
+        
+        return {
+            access_token: this.jwtService.sign(payload),
+        };
     }
+    
 
 }
