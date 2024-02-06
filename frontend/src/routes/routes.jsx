@@ -1,50 +1,69 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
+import TiposTrabajos from "../pages/tiposTrabajos";
 import Trabajos from "../pages/Trabajos";
-import TrabajosMecanic from "../pages/TrabajosMecanic";
 import StatusTrabajo from "../pages/StatusTrabajo";
 import Costos from "../components/Costos";
 import BotonFinal from "../components/BotonFinal";
 import Login from "../pages/login";
 import Registrar from "../pages/registrar";
-
-
+import TablaUsers from "../pages/admin/tablaUsers";
+import TablaCategoriasMateriales from "../pages/admin/tablaCategorias_materiales";
+import TablaTiposTrabajos from "../pages/admin/tablaTipos_trabajos";
+import TablaMateriales from "../pages/admin/tablaMateriales";
 
 
 export const routes = createBrowserRouter([
     {
         path: "/",
-        element: <App/>
+        element: <App />
     },
     {
-        path: "/trabajos",
-        element: <Trabajos/>
+        path: "/tipos_trabajos",
+        element: <TiposTrabajos />
     },
 
     {
-        path: "/trabajosMecanic",
-        element: < TrabajosMecanic/>
-    },
+        path: "/trabajos/:tipoTrabajoId", // Utilizando un parámetro para el ID del tipo de trabajo
+        element: <Trabajos />
+    }
+    ,
     {
-        path: "/statusTrabajo",
-        element: <StatusTrabajo/>
+        path: "/statusTrabajo/:id",
+        element: <StatusTrabajo />
     },
     {
         path: "/boton",
-        element: <BotonFinal/>
+        element: <BotonFinal />
     },
 
     {
         path: "/costo",
-        element: <Costos/>
+        element: <Costos />
     },
     {
         path: "/login",
-        element: <Login/>
+        element: <Login />
     },
     {
         path: "/registro",
-        element: <Registrar/>
+        element: <Registrar />
+    },
+    {
+        path: "/tablaUsuarios",
+        element: <TablaUsers/>
+    },
+    {
+        path: "/tablaCategoriasMateriales",
+        element: <TablaCategoriasMateriales/>
+    },
+    {
+        path: "/tablaTiposTrabajos",
+        element: <TablaTiposTrabajos/>
+    },
+    {
+        path: "/tablaMateriales",
+        element: <TablaMateriales/>
     },
     {
         path: "*",

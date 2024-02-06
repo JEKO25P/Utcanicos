@@ -1,5 +1,5 @@
 import { Controller, Get, Post, Patch, Delete, Body, Param, ParseIntPipe } from '@nestjs/common';
-import {Materiales} from './material.entity';
+import { Materiales } from './material.entity';
 import { MaterialesService } from './materiales.service';
 import { UpdateMaterialDto } from './Dto/update-material';
 import { CreateMaterialDto } from './Dto/create-material';
@@ -10,13 +10,11 @@ export class MaterialesController {
 
     @Get()
     getMateriales(): Promise<Materiales[]> {
-        return this.materialesService.getMateriales();
+        return this.materialesService.getMaterialesWithRelations();
     }
 
     @Get(':id')
     getMaterial(@Param('id', ParseIntPipe) id: number): Promise<Materiales> {
-        console.log(id)
-        console.log(typeof id)
         return this.materialesService.getMaterial(id);
     }
 
@@ -27,12 +25,11 @@ export class MaterialesController {
 
     @Delete(':id')
     deleteMaterial(@Param('id', ParseIntPipe) id: number) {
-        return this.materialesService.deleteMaterial(id)
+        return this.materialesService.deleteMaterial(id);
     }
 
     @Patch(':id')
-    updateMaterial(@Param('id', ParseIntPipe) id: number, @Body()
-    material: UpdateMaterialDto) {
-        return this.materialesService.updateMaterial(id, material)
+    updateMaterial(@Param('id', ParseIntPipe) id: number, @Body() material: UpdateMaterialDto) {
+        return this.materialesService.updateMaterial(id, material);
     }
 }

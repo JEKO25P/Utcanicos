@@ -9,8 +9,10 @@ export class TrabajosController {
     constructor(private trabajosService: TrabajosService) {}
 
     @Get()
-    getTrabajos(): Promise<Trabajos[]> {
-        return this.trabajosService.getTrabajos();
+    async getTrabajos(): Promise<Trabajos[]> {
+        // Utiliza el método getTrabajosWithRelations() de tu servicio
+        // para obtener todos los trabajos con la relación tipo_trabajo cargada.
+        return this.trabajosService.getTrabajosWithRelations();
     }
 
     @Get(':id')

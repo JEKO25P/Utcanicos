@@ -7,7 +7,7 @@ export default function Navbar() {
         <h1>Ut-canicos</h1>
       </div>
       <div className="text-3xl text-white font-extrabold ps-36 pe-96 pt-7">
-        <Link to="/trabajos" className="text-white hover:text-black">
+        <Link to="/tipos_trabajos" className="text-white hover:text-black">
           Empezar
         </Link>
       </div>
