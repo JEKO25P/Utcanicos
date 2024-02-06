@@ -12,7 +12,6 @@ import TablaCategoriasMateriales from "../pages/admin/tablaCategorias_materiales
 import TablaTiposTrabajos from "../pages/admin/tablaTipos_trabajos";
 import TablaMateriales from "../pages/admin/tablaMateriales";
 
-
 export const routes = createBrowserRouter([
     {
         path: "/",

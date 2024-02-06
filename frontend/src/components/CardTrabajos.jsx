@@ -37,7 +37,7 @@ export default function CardTrabajos({ tipo_trabajo }) {
             <div className="pt-14 text-center">
               {trabajo.tipo_trabajo && (
                 <Link
-                  to={`/trabajos/${trabajo.tipo_trabajo.id}`}
+                  to={`/trabajos/${trabajo.id}`}
                   className="text-2xl font-bold text-black hover:text-red-900"
                 >
                   Mostrar trabajo

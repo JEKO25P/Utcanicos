@@ -25,7 +25,7 @@ export default function Login() {
                     <label className="mr-2">¿No tienes una cuenta?</label>
                     <Link to={"/Registro"}>Resgistrar</Link>
                 </form>
-            </div>
+            </div>|
         </div>
     );
 }
