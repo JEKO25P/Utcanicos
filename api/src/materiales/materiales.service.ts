@@ -11,8 +11,10 @@ export class MaterialesService {
         @InjectRepository(Materiales) private materialRepository: Repository<Materiales>,
     ){}
 
-    getMateriales(){
-        return this.materialRepository.find()
+    async getMaterialesWithRelations(): Promise<Materiales[]>{
+        return this.materialRepository.createQueryBuilder('materiales')
+        .leftJoinAndSelect('materiales.categoria_material', 'categoria_material')
+        .getMany();
     }
 
     getMaterial(id: number){

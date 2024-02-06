@@ -2,8 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Trabajos } from './trabajo.entity';
-import { UpdateTrabajoDto } from './Dto/update-trabajo';
 import { CreateTrabajoDto } from './Dto/create-trabajo';
+import { UpdateTrabajoDto } from './Dto/update-trabajo';
 
 @Injectable()
 export class TrabajosService {
@@ -11,8 +11,12 @@ export class TrabajosService {
         @InjectRepository(Trabajos) private trabajoRepository: Repository<Trabajos>,
     ){}
 
-    getTrabajos(){
-        return this.trabajoRepository.find()
+    async getTrabajosWithRelations(): Promise<Trabajos[]> {
+        return this.trabajoRepository.createQueryBuilder('trabajos')
+            .leftJoinAndSelect('trabajos.tipo_trabajo', 'tipo_trabajo')
+            .leftJoinAndSelect('trabajos.nombre_cliente', 'nombre_cliente')
+            .leftJoinAndSelect('trabajos.material', 'material')
+            .getMany();
     }
 
     getTrabajo(id: number){

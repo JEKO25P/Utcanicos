@@ -1,23 +1,18 @@
 import React from "react";
-import NavbarT from "../components/NavbarT";
-import Card from "../components/Card";
+import NavbarTM from "../components/NavbarTM";
 import CardTrabajos from "../components/CardTrabajos";
-import Navbar from "../components/Navbar";
+import { useParams } from "react-router-dom";
 
 export default function Trabajos() {
+  const { tipo_trabajo_id } = useParams(); // Obtener el ID del tipo de trabajo de la URL
+
   return (
-    <div className=" flex flex-col bg-white py-10 w-screen ">
+    <div className="flex flex-col bg-white py-10 w-screen">
       <div>
-        <NavbarT />
+        <NavbarTM />
       </div>
       <div className="mt-44">
-        <CardTrabajos texto={"Reparacion mecanica"} direccion={"ver mas"} />
-      </div>
-      <div className="mt-40">
-        <CardTrabajos texto={"Reparación de chapa y pintura"} />
-      </div>
-      <div className="mt-40">
-        <CardTrabajos texto={"Revisión"} />
+        <CardTrabajos tipo_trabajo={tipo_trabajo_id} /> {/* Pasar el ID del tipo de trabajo como prop */}
       </div>
     </div>
   );

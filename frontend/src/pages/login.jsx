@@ -7,7 +7,7 @@ export default function Login() {
     const [notificationVisible, setNotificationVisible] = useState(false);
     const navigate = useNavigate();
     const [formValues, setFormValues] = useState({
-        Username: '',
+        UserName: '',
         Password: '',
     });
 
@@ -19,13 +19,17 @@ export default function Login() {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
+            console.log(formValues)
             const response = await axios.post("http://localhost:3000/users/login", formValues);
             console.log(response)
             if (response.data.message === 'Login exitoso') {
                 // Inicio de sesión exitoso
+                const { UserName } = formValues; // Obtener el nombre de usuario del formulario
+                localStorage.setItem('UserName', UserName);
+                console.log(localStorage.getItem('UserName')); // Agrega este console.log para verificar
+
                 localStorage.setItem('token', response.data.token);
-                navigate("/app");
-            } else {
+                navigate("/app", { state: { username: formValues.UserName } }); //             } else {
                 // Error en el inicio de sesión
                 setNotificationVisible(true);
             }
@@ -33,6 +37,7 @@ export default function Login() {
             console.error("Error al iniciar sesión: ", error);
             setNotificationVisible(true);
         }
+
     };
 
     return (
@@ -43,8 +48,8 @@ export default function Login() {
                 <form onSubmit={handleLogin}>
                     <div className="mb-4">
                         <label className="text-white">Nombre de usuario:</label>
-                        <input type="text" name="Username" className="block w-full border-gray-300 rounded-md bg-slate-600 text-white p-2" required
-                            value={formValues.Username}
+                        <input type="text" name="UserName" className="block w-full border-gray-300 rounded-md bg-slate-600 text-white p-2" required
+                            value={formValues.UserName}
                             onChange={handleInputChange}
                         />
                     </div>
